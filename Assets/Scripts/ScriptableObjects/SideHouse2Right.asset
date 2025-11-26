@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d6bef3eeaad184c96a6846af5261a3, type: 3}
+  m_Name: SideHouse2Right
+  m_EditorClassIdentifier: 
+  upgradeName: Platform
+  icon: {fileID: 7686402852062684296, guid: c169d897b24d3d14198110dcf5dc2c85, type: 3}
+  cost: 20
+  description: Side House
+  modulePrefab: {fileID: 7336111243957255514, guid: 4efa9401d275f6c48be34ea72fced316, type: 3}

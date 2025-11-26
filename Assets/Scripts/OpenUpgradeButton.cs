@@ -4,7 +4,7 @@ public class OpenUpgradeButton : MonoBehaviour
 {
     public UpgradeUI ui;
     public CatHouse catHouse;
-    public Transform attachPoint;
+    public Transform[] attachPoint;
     public CatHouseUpgradeData[] nextUpgrades;
 
     public void Awake()

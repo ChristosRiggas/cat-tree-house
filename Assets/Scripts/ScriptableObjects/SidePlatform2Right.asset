@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d6bef3eeaad184c96a6846af5261a3, type: 3}
+  m_Name: SidePlatform2Right
+  m_EditorClassIdentifier: 
+  upgradeName: Platform
+  icon: {fileID: 7839929399946273292, guid: 458f3fd9d4302ab44bced6cdfa99cd05, type: 3}
+  cost: 15
+  description: 'Pink Platform '
+  modulePrefab: {fileID: 7336111243957255514, guid: 824ea371da3f9514585e68178ae422d4, type: 3}

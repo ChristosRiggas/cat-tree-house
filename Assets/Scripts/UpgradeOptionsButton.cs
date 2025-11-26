@@ -9,14 +9,18 @@ public class UpgradeOptionButton : MonoBehaviour
     public TMPro.TextMeshProUGUI cost;
 
     private CatHouseUpgradeData upgrade;
+    private int indexOfUpgrade;
     private UpgradeUI ui;
 
-    public void Setup(CatHouseUpgradeData data, UpgradeUI uiController)
+    public void Setup(CatHouseUpgradeData data, UpgradeUI uiController, int index)
     {
         upgrade = data;
+        indexOfUpgrade = index;
+
         ui = uiController;
 
         icon.sprite = data.icon;
+        icon.SetNativeSize();
         label.text = data.upgradeName;
         cost.text = data.cost.ToString();
 
@@ -25,6 +29,6 @@ public class UpgradeOptionButton : MonoBehaviour
 
     private void OnPressed()
     {
-        ui.OnUpgradeChosen(upgrade);
+        ui.OnUpgradeChosen(upgrade, indexOfUpgrade);
     }
 }

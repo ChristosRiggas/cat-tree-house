@@ -23,7 +23,7 @@ public class CurrencyCounterUI : MonoBehaviour
     {
         if (currencyText != null)
         {
-            currencyText.text = "Paws: " + currencyAmount.ToString();
+            currencyText.text = /*"Paws: " + */currencyAmount.ToString();
         }
     }
 }

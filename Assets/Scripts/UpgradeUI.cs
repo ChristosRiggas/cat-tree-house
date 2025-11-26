@@ -57,11 +57,15 @@ public class UpgradeUI : MonoBehaviour
         foreach (Transform child in listParent)
             Destroy(child.gameObject);
 
+        int index = 0;
+
         foreach (var upgrade in currentNextUpgrades)
         {
             var btn = Instantiate(buttonPrefab, listParent);
             btn.GetComponent<UpgradeOptionButton>()
-               .Setup(upgrade, this);
+               .Setup(upgrade, this, index);
+
+            index++;    
         }
     }
 
@@ -78,9 +82,9 @@ public class UpgradeUI : MonoBehaviour
     //    }
     //}
 
-    public void OnUpgradeChosen(CatHouseUpgradeData upgrade)
+    public void OnUpgradeChosen(CatHouseUpgradeData upgrade, int upgradeIndex)
     {
-        if (currentHouse.TryApplyUpgrade(upgrade, lastPlusButton))
+        if (currentHouse.TryApplyUpgrade(upgrade, lastPlusButton, upgradeIndex))
         {
             Close();
             lastPlusButton.SetActive(false);

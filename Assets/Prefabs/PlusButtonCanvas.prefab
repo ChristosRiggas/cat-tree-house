@@ -284,6 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
   catHouse: {fileID: 0}
+  attachPoint: []
+  nextUpgrades: []
 --- !u!1 &8295661439679122588
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,7 +370,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2464828511346423608
 MonoBehaviour:
   m_ObjectHideFlags: 0
