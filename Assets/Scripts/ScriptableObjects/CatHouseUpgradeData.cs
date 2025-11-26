@@ -9,5 +9,5 @@ public class CatHouseUpgradeData : ScriptableObject
     public string description;
 
     public GameObject modulePrefab;       // The prefab to spawn
-    public CatHouseUpgradeData[] nextUpgrades;
+    //public CatHouseUpgradeData[] nextUpgrades;
 }

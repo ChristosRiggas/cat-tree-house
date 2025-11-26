@@ -401,6 +401,7 @@ MonoBehaviour:
   panel: {fileID: 2090924295}
   listParent: {fileID: 642554366}
   buttonPrefab: {fileID: 5765207433060785613, guid: 11bc81214a865fb43b5294a4cde67aee, type: 3}
+  currentNextUpgrades: []
 --- !u!224 &391756041
 RectTransform:
   m_ObjectHideFlags: 0
@@ -734,7 +735,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1046,7 +1047,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -115}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &642554367
@@ -1069,7 +1070,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 2
   m_StartAxis: 1
-  m_CellSize: {x: 100, y: 100}
+  m_CellSize: {x: 200, y: 200}
   m_Spacing: {x: 400, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
@@ -1345,7 +1346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8af3a053676b247bcff51b835f0ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyAmount: 200
+  currencyAmount: 1000
 --- !u!4 &879507002
 Transform:
   m_ObjectHideFlags: 0
@@ -1491,8 +1492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88ed6c506d6b4946ac0356f25639015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentUpgrade: {fileID: 11400000, guid: 1269c0874320daf48a8586ea1fe8f485, type: 2}
-  topAttachPoint: {fileID: 388677672}
+  currentAttachPoint: {fileID: 388677672}
   modulesParent: {fileID: 1020821460}
 --- !u!212 &1079118812
 SpriteRenderer:
@@ -3031,7 +3031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3505,6 +3505,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5147002403791609930, guid: ab4fc2878691dc046998ffca3b35d0b3, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7297035907587652390, guid: ab4fc2878691dc046998ffca3b35d0b3, type: 3}
       propertyPath: ui
       value: 
@@ -3513,6 +3517,22 @@ PrefabInstance:
       propertyPath: catHouse
       value: 
       objectReference: {fileID: 1079118811}
+    - target: {fileID: 7297035907587652390, guid: ab4fc2878691dc046998ffca3b35d0b3, type: 3}
+      propertyPath: attachPoint
+      value: 
+      objectReference: {fileID: 388677672}
+    - target: {fileID: 7297035907587652390, guid: ab4fc2878691dc046998ffca3b35d0b3, type: 3}
+      propertyPath: nextUpgrades.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297035907587652390, guid: ab4fc2878691dc046998ffca3b35d0b3, type: 3}
+      propertyPath: 'nextUpgrades.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: f9a14f0d28f69b042ba8ff587cee5a33, type: 2}
+    - target: {fileID: 7297035907587652390, guid: ab4fc2878691dc046998ffca3b35d0b3, type: 3}
+      propertyPath: 'nextUpgrades.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 6e001e12da9f2624e86791fc57bb3396, type: 2}
     - target: {fileID: 8295661439679122588, guid: ab4fc2878691dc046998ffca3b35d0b3, type: 3}
       propertyPath: m_Name
       value: PlusButtonCanvas

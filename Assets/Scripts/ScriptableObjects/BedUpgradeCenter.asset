@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d6bef3eeaad184c96a6846af5261a3, type: 3}
+  m_Name: BedUpgradeCenter
+  m_EditorClassIdentifier: 
+  upgradeName: Bed
+  icon: {fileID: 21300000, guid: 093d252d1d41041c8b4df35c330dcc59, type: 3}
+  cost: 20
+  description: Bed
+  modulePrefab: {fileID: 7336111243957255514, guid: af8428c4009d29e4e9f6fcfd7e88d74f, type: 3}
+  nextUpgrades:
+  - {fileID: 11400000}
+  - {fileID: 11400000, guid: f9a14f0d28f69b042ba8ff587cee5a33, type: 2}
+  - {fileID: 11400000, guid: 633c7853c68fff346a3aed6fe2993a34, type: 2}

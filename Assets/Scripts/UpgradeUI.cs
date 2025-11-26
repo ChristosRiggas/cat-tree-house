@@ -11,6 +11,8 @@ public class UpgradeUI : MonoBehaviour
     private CatHouse currentHouse;
     private GameObject lastPlusButton;
 
+    public CatHouseUpgradeData[] currentNextUpgrades;
+
     private void Awake()
     {
         // Ensure only one instance exists
@@ -30,7 +32,17 @@ public class UpgradeUI : MonoBehaviour
         lastPlusButton = lastSelectedPlusButton;
         currentHouse = house;
         panel.SetActive(true);
+        UpdateCurrentUpgradesBasedOnButton(lastPlusButton);
         RefreshButtons();
+    }
+
+    private void UpdateCurrentUpgradesBasedOnButton(GameObject plusButton)
+    {
+        var openUpgradeButton = plusButton.GetComponent<OpenUpgradeButton>();
+        if (openUpgradeButton != null && openUpgradeButton.nextUpgrades != null)
+        {
+            currentNextUpgrades = openUpgradeButton.nextUpgrades;
+        }
     }
 
     public void Close()
@@ -45,7 +57,7 @@ public class UpgradeUI : MonoBehaviour
         foreach (Transform child in listParent)
             Destroy(child.gameObject);
 
-        foreach (var upgrade in currentHouse.currentUpgrade.nextUpgrades)
+        foreach (var upgrade in currentNextUpgrades)
         {
             var btn = Instantiate(buttonPrefab, listParent);
             btn.GetComponent<UpgradeOptionButton>()
@@ -53,9 +65,22 @@ public class UpgradeUI : MonoBehaviour
         }
     }
 
+    //private void RefreshButtons()
+    //{
+    //    foreach (Transform child in listParent)
+    //        Destroy(child.gameObject);
+
+    //    foreach (var upgrade in currentHouse.currentUpgrade.nextUpgrades)
+    //    {
+    //        var btn = Instantiate(buttonPrefab, listParent);
+    //        btn.GetComponent<UpgradeOptionButton>()
+    //           .Setup(upgrade, this);
+    //    }
+    //}
+
     public void OnUpgradeChosen(CatHouseUpgradeData upgrade)
     {
-        if (currentHouse.TryApplyUpgrade(upgrade))
+        if (currentHouse.TryApplyUpgrade(upgrade, lastPlusButton))
         {
             Close();
             lastPlusButton.SetActive(false);
