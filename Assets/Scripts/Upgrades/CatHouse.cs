@@ -41,7 +41,9 @@ public class CatHouse : MonoBehaviour
         //    return false;
 
         // Update attach point to the one from the last plus button
-        currentAttachPoint = lastPlusButton.GetComponent<OpenUpgradeButton>().attachPoint[upgradeIndex];  
+        currentAttachPoint = lastPlusButton.GetComponent<OpenUpgradeButton>().attachPoint[upgradeIndex];
+
+        Destroy(lastPlusButton);
 
         // Spawn upgrade module
         GameObject newModule = Instantiate(selected.modulePrefab, modulesParent);

@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: f22b2ea64ae783640aba8bdedeb79d33
+guid: 9c4d44c9b9296f04daeb6ace4a602ba5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6871032511782127585
-    second: House2_0
+      213: 4151975624534171561
+    second: SleepCattt-noCattt_0
+  - first:
+      213: -1182536570587926733
+    second: SleepCattt-noCattt_1
+  - first:
+      213: 112904498077718354
+    second: SleepCattt-noCattt_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +106,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: House2_0
+      name: SleepCattt-noCattt_0
       rect:
         serializedVersion: 2
-        x: 67
-        y: 126
-        width: 58
-        height: 44
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 0
+        y: 0
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f18f017b55035a0a0800000000000000
-      internalID: -6871032511782127585
+      spriteID: 9af907815d7ce9930800000000000000
+      internalID: 4151975624534171561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepCattt-noCattt_1
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33fa2302149c69fe0800000000000000
+      internalID: -1182536570587926733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepCattt-noCattt_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2575775fa0e119100800000000000000
+      internalID: 112904498077718354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SleepCattt-noCattt_3
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 0
+        width: 40
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd9d526fcdb786438a7a438ce2aee91
+      internalID: -746063626
       vertices: []
       indices: 
       edges: []
@@ -125,7 +197,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d5b6094f72f850a47908f59fba4f4d5d
+    spriteID: ac131a329e751d745959b08d54461fb1
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +207,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      House2_0: -6871032511782127585
+      SleepCattt-noCattt_0: 4151975624534171561
+      SleepCattt-noCattt_1: -1182536570587926733
+      SleepCattt-noCattt_2: 112904498077718354
+      SleepCattt-noCattt_3: -746063626
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

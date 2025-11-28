@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class ValidatePlusButtons : MonoBehaviour
 {
@@ -20,9 +21,50 @@ public class ValidatePlusButtons : MonoBehaviour
 
     private RaycastHit2D[] hitResults = new RaycastHit2D[8];
 
+    private Collider2D collider2D;
+    private GameObject[] upgradeButtons;
+    private SnapZoneData snapZoneData;
+
+    private void Awake()
+    {
+        snapZoneData = GetComponentInChildren<SnapZoneData>();
+        collider2D = GetComponent<Collider2D>();
+        //collider2D.enabled = false; // Disable own collider to prevent self-blocking by default
+        upgradeButtons = GameObject.FindGameObjectsWithTag("UpgradeButton");
+    }
+
     void Update()
     {
         ValidatePlusButton();
+        UpdateBasedOnUpgradeMode();
+    }
+
+    public void UpdateBasedOnUpgradeMode()
+    {
+        if (UpgradePartManager.Instance != null && !UpgradePartManager.Instance.upgradeMode)
+        {
+            if(snapZoneData != null)
+                snapZoneData.gameObject.SetActive(true);
+
+            collider2D.enabled = false; // Disable own collider to prevent self-blocking
+            foreach (var button in upgradeButtons)
+            {
+                if (button != null)
+                    button.SetActive(false);
+            }
+        }
+        else
+        {
+            if(snapZoneData != null)
+                snapZoneData.gameObject.SetActive(false);
+
+            collider2D.enabled = true; // Enable own collider to allow self-blocking
+            foreach (var button in upgradeButtons)
+            {
+                if (button != null)
+                    button.SetActive(true);
+            }
+        }
     }
 
     public void ValidatePlusButton()
@@ -41,6 +83,7 @@ public class ValidatePlusButtons : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Transform point = attachPoints[i];
+
             Canvas canvas = plusButtonCanvas[i];
 
             if (point == null || canvas == null)
@@ -98,8 +141,12 @@ public class ValidatePlusButtons : MonoBehaviour
             }
 
             // Enable/disable visual
-            canvas.enabled = !foundBlocking;
-            btn.enabled = !foundBlocking;
+            //canvas.enabled = !foundBlocking;
+            //btn.enabled = !foundBlocking;
+
+            // Instead of disabling destory
+            if(foundBlocking)
+                Destroy(canvas.gameObject);
 
             // Debug ray
             Debug.DrawRay(origin, dir * dist, foundBlocking ? Color.red : Color.green);

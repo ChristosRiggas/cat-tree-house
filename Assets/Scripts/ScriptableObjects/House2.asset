@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: House2
   m_EditorClassIdentifier: 
   upgradeName: House
-  icon: {fileID: -6871032511782127585, guid: f22b2ea64ae783640aba8bdedeb79d33, type: 3}
+  icon: {fileID: -7962744705876694299, guid: 80d855b72610a0e408534dc135810cd9, type: 3}
   cost: 30
   description: Pink House
   modulePrefab: {fileID: 7336111243957255514, guid: 798b859310b24594d8d98e1fef9abfee, type: 3}
