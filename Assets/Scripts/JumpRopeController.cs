@@ -4,15 +4,21 @@ public class JumpRopeController : MonoBehaviour
 {
     public Animator ropeAnimator;
     public PlayerJumpController player;
-
-    [Range(0f, 1f)] public float perfectWindow = 0.1f;
-    [Range(0f, 1f)] public float goodWindow = 0.2f;
-
+    public SpriteRenderer ropeSpriteRenderer;
+    public float speedIncrease = 0.01f;
+    public SpriteRenderer jumpLabel;
     private float currentSpeed = 1f;
-    private const float speedIncrease = 0.03f;
+    
 
     private bool canJump;
+    private bool hasJumped;
 
+
+    private void Start()
+    {
+        ropeSpriteRenderer = GetComponent<SpriteRenderer>();
+        ropeSpriteRenderer.sortingOrder = 0;
+    }
     private void Update()
     {
         // Detect click
@@ -20,33 +26,12 @@ public class JumpRopeController : MonoBehaviour
         {
             if (!canJump)
             {
-                player.FailJump();   // too early
                 return;
             }
-
-            float t = GetRopeNormalizedTime();
-
-            if (Mathf.Abs(t - 0.5f) < perfectWindow)
-            {
-                player.JumpPerfect();
-                IncreaseSpeed();
-            }
-            else if (Mathf.Abs(t - 0.5f) < goodWindow)
-            {
-                player.JumpGood();
-                IncreaseSpeed();
-            }
-            else
-            {
-                player.FailJump();   // too late
-            }
+            player.Jump();
+            hasJumped = true;
+            IncreaseSpeed();
         }
-    }
-
-    private float GetRopeNormalizedTime()
-    {
-        AnimatorStateInfo st = ropeAnimator.GetCurrentAnimatorStateInfo(0);
-        return st.normalizedTime % 1f;
     }
 
     private void IncreaseSpeed()
@@ -56,6 +41,26 @@ public class JumpRopeController : MonoBehaviour
     }
 
     // Called by animation events
-    public void EnableJumpWindow() => canJump = true;
-    public void DisableJumpWindow() => canJump = false;
+    public void EnableJumpWindow() => JumpEnabler();
+    public void DisableJumpWindow() => JumpCheck();
+
+    private void JumpEnabler() 
+    {
+        canJump = true;
+        jumpLabel.enabled = true;
+        ropeSpriteRenderer.sortingOrder = 1;
+    }
+
+    private void JumpCheck()
+    {
+        canJump = false;
+        jumpLabel.enabled = false;
+        if (!hasJumped)
+        {
+            player.FailJump();
+            currentSpeed = 0f;
+            ropeAnimator.speed = currentSpeed;
+        }
+        hasJumped = false;
+    }
 }
