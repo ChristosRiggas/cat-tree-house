@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -57,5 +58,13 @@ public class PlayerJumpController : MonoBehaviour
         }
 
         transform.position = target; // snap exactly at end
+    }
+
+    internal float EarlyJump()
+    {
+        animator.Play("PlayerJump", 0, 0f);
+        jumpduration = animator.GetCurrentAnimatorStateInfo(0).length;
+        StartCoroutine(JumpRoutine(jumpPosition, jumpduration/2));
+        return jumpduration;
     }
 }

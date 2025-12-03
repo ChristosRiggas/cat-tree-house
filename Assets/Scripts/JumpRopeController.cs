@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class JumpRopeController : MonoBehaviour
@@ -11,8 +13,13 @@ public class JumpRopeController : MonoBehaviour
     
 
     private bool canJump;
+    private bool hasJumpedEarly;
     private bool hasJumped;
+    private bool hasFailed;
 
+    private float spamCounter = 0;
+
+    private float delay = 0f;
 
     private void Start()
     {
@@ -21,17 +28,39 @@ public class JumpRopeController : MonoBehaviour
     }
     private void Update()
     {
+
+        if (hasFailed) return;
         // Detect click
         if (Input.GetMouseButtonDown(0))
         {
             if (!canJump)
             {
+                if (!hasJumpedEarly)
+                {
+                    hasJumpedEarly = true;
+                    delay += player.EarlyJump();
+                    StartCoroutine(ResetEarlyJump());
+                }
+                else
+                {
+                    spamCounter += 1;
+                }
+            }
+            if (hasJumpedEarly || spamCounter>=3) 
+            {
                 return;
             }
             player.Jump();
+            canJump = false;
             hasJumped = true;
             IncreaseSpeed();
         }
+    }
+
+    IEnumerator ResetEarlyJump()
+    {
+        yield return new WaitForSeconds(delay);
+        hasJumpedEarly = false;
     }
 
     private void IncreaseSpeed()
@@ -58,6 +87,7 @@ public class JumpRopeController : MonoBehaviour
         if (!hasJumped)
         {
             player.FailJump();
+            hasFailed = true;
             currentSpeed = 0f;
             ropeAnimator.speed = currentSpeed;
         }
