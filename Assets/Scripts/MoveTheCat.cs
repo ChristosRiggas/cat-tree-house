@@ -183,7 +183,8 @@ public class MoveTheCat : MonoBehaviour
         transform.position = defaultSnapPoint.position;
         lastSnappedPosition = defaultSnapPoint.position;
         isCarried = false;
-        previousColisionZoneData.GetComponent<Collider2D>().enabled = true; // Re-enable previous collider
+        if(previousColisionZoneData != null)
+            previousColisionZoneData.GetComponent<Collider2D>().enabled = true; // Re-enable previous collider
         currentColisionZoneData = null;
         colisionSnapPoint = null;
         currentZoneData = null;

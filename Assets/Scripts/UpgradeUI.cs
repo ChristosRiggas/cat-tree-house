@@ -9,7 +9,7 @@ public class UpgradeUI : MonoBehaviour
     public GameObject buttonPrefab;
 
     private CatHouse currentHouse;
-    private GameObject lastPlusButton;
+    public GameObject lastPlusButton;
 
     public CatHouseUpgradeData[] currentNextUpgrades;
 
@@ -88,6 +88,29 @@ public class UpgradeUI : MonoBehaviour
         {
             Close();
             lastPlusButton.SetActive(false);
+
+            string path = GetHierarchyPath(lastPlusButton.transform);
+            // Create upgrade info object
+            AppliedUpgradeInfo info = new AppliedUpgradeInfo(upgrade, path, upgradeIndex);
+
+            // Add to dictionary with incrementing ID
+            RecostructCatHouseManager.Instance.appliedUpgradeCounter++;
+            RecostructCatHouseManager.Instance.appliedUpgrades.Add(RecostructCatHouseManager.Instance.appliedUpgradeCounter, info);
+
+            RecostructCatHouseManager.Instance.DebugDictionary();
+
+            //Debug.Log($"Upgrade added with ID: {RecostructCatHouseManager.Instance.appliedUpgradeCounter}, path: {path}");
         }
+    }
+
+    public static string GetHierarchyPath(Transform t)
+    {
+        string path = t.name;
+        while (t.parent != null)
+        {
+            t = t.parent;
+            path = t.name + "/" + path;
+        }
+        return path;
     }
 }

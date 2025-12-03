@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CatHouse : MonoBehaviour
@@ -11,6 +12,8 @@ public class CatHouse : MonoBehaviour
 
     public int currentShortingLayerValue = 0;
 
+    private Dictionary<string, int> moduleCounters = new();
+
     private void Awake()
     {
         // Ensure only one instance exists
@@ -23,6 +26,29 @@ public class CatHouse : MonoBehaviour
         Instance = this;
         // Optional: persist across scenes
         // DontDestroyOnLoad(gameObject);
+    }
+
+    public bool RecostructUpgrade(CatHouseUpgradeData selected, GameObject lastPlusButton, int upgradeIndex)
+    {
+        if (selected == null) return false;
+
+        if (selected.modulePrefab == null)
+            return false;
+
+        // Update attach point to the one from the last plus button
+        currentAttachPoint = lastPlusButton.GetComponent<OpenUpgradeButton>().attachPoint[upgradeIndex];
+
+        Destroy(lastPlusButton);
+
+        // Spawn upgrade module
+        GameObject newModule = Instantiate(selected.modulePrefab, modulesParent);
+        newModule.transform.position = currentAttachPoint.position;
+
+        newModule.GetComponent<SpriteRenderer>().sortingOrder = currentShortingLayerValue;
+        currentShortingLayerValue++;
+
+        RenameModuleGO(newModule);
+        return true;
     }
 
     public bool TryApplyUpgrade(CatHouseUpgradeData selected, GameObject lastPlusButton, int upgradeIndex)
@@ -52,6 +78,8 @@ public class CatHouse : MonoBehaviour
         newModule.GetComponent<SpriteRenderer>().sortingOrder = currentShortingLayerValue;
         currentShortingLayerValue++;
 
+        RenameModuleGO(newModule);
+
         // Update next attach point
         //Transform attach = newModule.transform.Find("AttachPoint");
         //if (attach != null)
@@ -59,6 +87,25 @@ public class CatHouse : MonoBehaviour
 
         //currentUpgrade = selected;
         return true;
+    }
+
+    private void RenameModuleGO(GameObject module)
+    {
+        string baseName = module.name.Split('(')[0].Trim(); // Get the base name without any (Clone) or (1) suffix
+        if (!moduleCounters.ContainsKey(baseName))
+        {
+            moduleCounters[baseName] = 1;
+        }
+        else
+        {
+            moduleCounters[baseName]++;
+        }
+        module.name = $"{baseName} ({moduleCounters[baseName]})";
+    }
+
+    public void DeleteModuleCounters()
+    {
+        moduleCounters.Clear();
     }
 
     private int FindIndexOfSelectedUpgrade(CatHouseUpgradeData selected, GameObject lastPlusButton)
