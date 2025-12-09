@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 279180032}
   - component: {fileID: 279180031}
   m_Layer: 0
-  m_Name: MinigameButtonCanvasTest (1)
+  m_Name: MinigameRope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1059,8 +1059,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95523ca24fbeb764e9caa33101ccfad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 25
-  sceneToLoad: MinigameTest
+  cooldownTime: 3
+  sceneToLoad: MiniGame1Scene
   requiredHeight: 15
 --- !u!1 &615403013
 GameObject:
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 745287765}
   - component: {fileID: 745287764}
   m_Layer: 0
-  m_Name: MinigameButtonCanvasTest
+  m_Name: MinigamePlatformer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,7 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyAmount: 100
-  treeHeight: 0
+  treeHeight: 100
 --- !u!4 &879507002
 Transform:
   m_ObjectHideFlags: 0
@@ -2603,7 +2603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95523ca24fbeb764e9caa33101ccfad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 15
+  cooldownTime: 2
   sceneToLoad: PlatformGame
   requiredHeight: 6
 --- !u!1 &1443713587
@@ -2850,7 +2850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mini Game Test
+  m_text: Rope
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

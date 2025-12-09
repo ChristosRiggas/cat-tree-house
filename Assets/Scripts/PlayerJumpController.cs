@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Unity.UI;
 
 public class PlayerJumpController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerJumpController : MonoBehaviour
     public float jumpheight = 0.3f;
     private float jumpduration;
     private SpriteRenderer spriteRenderer;
+    public GameObject gameOverScreen;
 
     Vector3 jumpPosition;
     Vector3 landPosition;
@@ -30,6 +32,7 @@ public class PlayerJumpController : MonoBehaviour
     {
         jumpduration = animator.GetCurrentAnimatorStateInfo(0).length / 2;
         StartCoroutine(JumpRoutine(landPosition, jumpduration));
+        CurrencyManager.Instance.AddCurrency(3);
         Debug.Log("Landing");
     }
 
@@ -38,6 +41,7 @@ public class PlayerJumpController : MonoBehaviour
         spriteRenderer.sortingLayerID = SortingLayer.NameToID("Foreground");
         spriteRenderer.sortingOrder = 10;
         animator.Play("PlayerFall", 0, 0f);
+        gameOverScreen.SetActive(true);
     }
 
     public void TriggerMove(Vector3 targetPos, float duration)
@@ -66,5 +70,12 @@ public class PlayerJumpController : MonoBehaviour
         jumpduration = animator.GetCurrentAnimatorStateInfo(0).length;
         StartCoroutine(JumpRoutine(jumpPosition, jumpduration/2));
         return jumpduration;
+    }
+
+    public void LoadMenu()
+    {
+        //CurrencyManager.Instance.AddCurrency(GetCoinCount());
+
+        GameSceneManager.Instance.ChangeScene("Lobby");
     }
 }
