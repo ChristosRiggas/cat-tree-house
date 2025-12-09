@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using System;
+using TreeEditor;
 
 public class CatHouse : MonoBehaviour
 {
@@ -85,7 +88,24 @@ public class CatHouse : MonoBehaviour
         //if (attach != null)
         //    currentAttachPoint = attach;
 
-        //currentUpgrade = selected;
+        // Get the Y position of the new module relative to the tree parent
+        float moduleY = newModule.transform.localPosition.y;
+        if(moduleY < 0)
+            moduleY = 0;
+
+        // Add the module's extra height (if any)
+        float totalHeight = moduleY + selected.heightIncrease;
+        Debug.Log($"Module Y: {moduleY}, Height Increase: {selected.heightIncrease}, Total Height: {totalHeight}");
+
+        //// Convert to integer
+        int newHeight = Mathf.CeilToInt(totalHeight);
+
+        // Update the manager if this module makes the tree taller
+        if (newHeight > CurrencyManager.Instance.treeHeight)
+        {
+            CurrencyManager.Instance.SetTreeHeight(newHeight);
+        }
+
         return true;
     }
 

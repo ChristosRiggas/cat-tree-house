@@ -10,6 +10,8 @@ public class CurrencyManager : MonoBehaviour
 
     public int currencyAmount = 200;
 
+    public int treeHeight = 0;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -47,22 +49,24 @@ public class CurrencyManager : MonoBehaviour
             return;
         SnapZoneType zone = MoveTheCat.Instance.currentZoneData.zoneType;
 
+        Debug.Log("Awarding passive currency for zone: " + zone.ToString());
+
         switch (zone)
         {
             case SnapZoneType.OpenHouse:
                 AddCurrency(5);
                 break;
             case SnapZoneType.ClosedHouse:
-                AddCurrency(3);
+                AddCurrency(4);
                 break;
             case SnapZoneType.SideBed:
-                AddCurrency(2);
+                AddCurrency(3);
                 break;
             case SnapZoneType.SidePlatform:
-                AddCurrency(1);
+                AddCurrency(2);
                 break;
             case SnapZoneType.CryPlace:
-                AddCurrency(0);
+                AddCurrency(1);
                 break;
         }
     }
@@ -83,5 +87,11 @@ public class CurrencyManager : MonoBehaviour
     {
         currencyAmount += amount;
         CurrencyCounterUI.Instance.UpdateCurrencyText(currencyAmount);
+    }
+
+    public void SetTreeHeight(int height)
+    {
+        treeHeight = height;
+        //TreeHeightUI.Instance.UpdateTreeHeightText(treeHeight);
     }
 }

@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: -4593286119308272856, guid: a1c1c49cd35b31445abb787851919264, type: 3}
   cost: 40
   description: Beige House
+  heightIncrease: 3
   modulePrefab: {fileID: 7336111243957255514, guid: 652b3b56c7c426e47a025a6ddd5fcdba, type: 3}

@@ -7,6 +7,7 @@ public class CatHouseUpgradeData : ScriptableObject
     public Sprite icon;
     public int cost;
     public string description;
+    public int heightIncrease;
 
     public GameObject modulePrefab;       // The prefab to spawn
     //public CatHouseUpgradeData[] nextUpgrades;

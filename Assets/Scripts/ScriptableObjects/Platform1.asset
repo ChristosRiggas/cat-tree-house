@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: 1325028264418417928, guid: 1d5ef4c9e38a6794d9c947418cd1814e, type: 3}
   cost: 10
   description: 'Beige Platform '
+  heightIncrease: 1
   modulePrefab: {fileID: 7336111243957255514, guid: 99f37fec94a78264a9f3791290c51021, type: 3}

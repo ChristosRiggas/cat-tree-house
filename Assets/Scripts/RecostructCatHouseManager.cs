@@ -41,9 +41,9 @@ public class RecostructCatHouseManager : MonoBehaviour
             int id = kvp.Key;
             AppliedUpgradeInfo info = kvp.Value;
 
-            Debug.Log(
-                $"ID: {id} | Upgrade: {info.upgrade.name} | Button Path: {info.buttonPath} | Index: {info.upgradeIndex}"
-            );
+            //Debug.Log(
+            //    $"ID: {id} | Upgrade: {info.upgrade.name} | Button Path: {info.buttonPath} | Index: {info.upgradeIndex}"
+            //);
         }
 
         //Debug.Log("====================================");

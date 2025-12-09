@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: 698527257568805005, guid: 44b982a9c5562664e9a71aab2adccaad, type: 3}
   cost: 5
   description: Pink Pole
+  heightIncrease: 3
   modulePrefab: {fileID: 7336111243957255514, guid: d3d62774005452b4984b53544365d4f0, type: 3}

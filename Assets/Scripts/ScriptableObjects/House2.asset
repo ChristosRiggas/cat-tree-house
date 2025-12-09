@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: -7962744705876694299, guid: 80d855b72610a0e408534dc135810cd9, type: 3}
   cost: 30
   description: Pink House
+  heightIncrease: 4
   modulePrefab: {fileID: 7336111243957255514, guid: 798b859310b24594d8d98e1fef9abfee, type: 3}

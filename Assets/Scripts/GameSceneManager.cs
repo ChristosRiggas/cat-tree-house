@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +31,7 @@ public class GameSceneManager : MonoBehaviour
         {
             RecostructCatHouseManager.Instance.ReconstructCatHouse();
             CurrencyCounterUI.Instance.UpdateCurrencyText(CurrencyManager.Instance.currencyAmount);
+            //TreeHeightUI.Instance.UpdateTreeHeightText(CurrencyManager.Instance.treeHeight);
         }
 
         // Always unsubscribe to avoid duplicate calls

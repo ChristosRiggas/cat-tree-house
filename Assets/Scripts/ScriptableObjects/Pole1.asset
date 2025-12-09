@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: -1070626364575315710, guid: a5c62e11d4818cb4ca5b30292d1324a7, type: 3}
   cost: 5
   description: Beige Pole
+  heightIncrease: 3
   modulePrefab: {fileID: 7336111243957255514, guid: 80a65d86fb617cf4cb53c39479761be5, type: 3}

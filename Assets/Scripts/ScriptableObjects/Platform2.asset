@@ -16,4 +16,5 @@ MonoBehaviour:
   icon: {fileID: 2912581437029680896, guid: 2539e8ddb0271954f866f62d84cb092c, type: 3}
   cost: 10
   description: 'Pink Platform '
+  heightIncrease: 1
   modulePrefab: {fileID: 7336111243957255514, guid: fc498b37d123447449c6868b15b55fb8, type: 3}
