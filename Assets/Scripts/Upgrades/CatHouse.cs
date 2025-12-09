@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using System;
-using TreeEditor;
 
 public class CatHouse : MonoBehaviour
 {

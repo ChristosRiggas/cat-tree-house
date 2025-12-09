@@ -26,7 +26,7 @@ public class MinigamePortraitsTimeManager : MonoBehaviour
         foreach (var kvp in cooldownEndTimes)
         {
             float remaining = Mathf.Max(0, kvp.Value - Time.time);
-            Debug.Log($"Minigame: {kvp.Key} | Remaining cooldown: {remaining:F2}s");
+            //Debug.Log($"Minigame: {kvp.Key} | Remaining cooldown: {remaining:F2}s");
         }
     }
 

@@ -128,6 +128,7 @@
 //}
 
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -179,11 +180,15 @@ public class MinigamePortrait : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
         if (IsOnCooldown())
         {
-            cooldownText.text = $"{remaining:F1}s";
+            cooldownText.text = $"{remaining:F0}";
+        }
+        else if(available)
+        {
+            cooldownText.text = "Ready";
         }
         else
         {
-            cooldownText.text = "Ready";
+            cooldownText.text = "Locked";
         }
     }
     // ---------- HOVER ----------

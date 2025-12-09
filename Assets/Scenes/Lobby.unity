@@ -2345,8 +2345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8af3a053676b247bcff51b835f0ac4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyAmount: 1000
-  treeHeight: 1000
+  currencyAmount: 20
+  treeHeight: 0
 --- !u!4 &879507002
 Transform:
   m_ObjectHideFlags: 0
