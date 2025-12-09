@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
 
         // 可以在这里添加音效和视觉反馈
         Debug.Log("Score: " + currentScore);
+
+        CurrencyManager.Instance.AddCurrency(points);
     }
 
     // 游戏结束（抓到洋葱或时间到）
@@ -153,12 +155,21 @@ public class GameManager : MonoBehaviour
     // 结束按钮调用 - 跳转到其他场景
     public void OnEndButtonClick()
     {
-        SceneManager.LoadScene(nextSceneName);
+        //SceneManager.LoadScene(nextSceneName);
+        LoadMenu();
     }
 
     // 重新开始按钮调用 - 重新加载当前场景
     public void OnRestartButtonClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        LoadMenu();
+    }
+
+    public void LoadMenu()
+    {
+        //CurrencyManager.Instance.AddCurrency(GetCoinCount());
+
+        GameSceneManager.Instance.ChangeScene("Lobby");
     }
 }

@@ -1,9 +1,10 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MinigamePortrait : MonoBehaviour
+public class MinigamePortrait : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Cooldown")]
     public int cooldownTime = 5;
@@ -16,6 +17,8 @@ public class MinigamePortrait : MonoBehaviour
     public string sceneToLoad;
     public int requiredHeight = 10;
 
+    [SerializeField] private GameObject descriptionPanel;
+
     void Awake()
     {
         button = GetComponentInChildren<Button>();
@@ -25,17 +28,52 @@ public class MinigamePortrait : MonoBehaviour
 
     private void Start()
     {
+        if (descriptionPanel != null)
+            descriptionPanel.SetActive(false);
+
         StartCooldown();
+    }
+
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (available)
+        {
+            if (descriptionPanel != null)
+                descriptionPanel.SetActive(true);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (available)
+        {
+            if (descriptionPanel != null)
+                descriptionPanel.SetActive(false);
+        }
     }
 
     private void Update()
     {
         CheckIfTheMinigameIsAvailable();
+
+        if (UpgradePartManager.Instance.upgradeMode || isOnCooldown)
+        {
+            descriptionPanel.SetActive(false);
+        }
     }
 
     public void CheckIfTheMinigameIsAvailable()
     {
-        if(requiredHeight <= CurrencyManager.Instance.treeHeight)
+        if(UpgradePartManager.Instance != null && UpgradePartManager.Instance.upgradeMode)
+        {
+            available = false;
+            UpdateButtonState();
+            GetComponentInParent<Canvas>().sortingOrder = -9;
+            return;
+        }
+
+        if (requiredHeight <= CurrencyManager.Instance.treeHeight)
         {
             available = true;
         }
@@ -43,6 +81,13 @@ public class MinigamePortrait : MonoBehaviour
         {
             available = false;
         }
+
+        Canvas canvas = GetComponentInParent<Canvas>();
+
+        if (available && !UpgradePartManager.Instance.upgradeMode)
+            canvas.sortingOrder = -9; // 100 before but looks weird
+        else
+            canvas.sortingOrder = -9;
 
         UpdateButtonState();
     }
