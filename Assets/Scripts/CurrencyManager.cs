@@ -11,6 +11,7 @@ public class CurrencyManager : MonoBehaviour
     public int currencyAmount = 200;
 
     public int treeHeight = 0;
+    private int treeHeightMultiplier = 1;
 
     private void Awake()
     {
@@ -51,19 +52,25 @@ public class CurrencyManager : MonoBehaviour
 
         Debug.Log("Awarding passive currency for zone: " + zone.ToString());
 
+        //treeHeightMultiplier = Mathf.Max(1, Mathf.CeilToInt(treeHeight / 10f));
+
+        float currentHeightInRestZone = MoveTheCat.Instance.currentZoneData.gameObject.GetComponentInParent<Transform>().position.y;
+
+        treeHeightMultiplier = Mathf.Max(1, Mathf.CeilToInt((currentHeightInRestZone) / 5f));
+
         switch (zone)
         {
             case SnapZoneType.OpenHouse:
-                AddCurrency(5);
+                AddCurrency(5 * treeHeightMultiplier);
                 break;
             case SnapZoneType.ClosedHouse:
-                AddCurrency(4);
+                AddCurrency(4 * treeHeightMultiplier);
                 break;
             case SnapZoneType.SideBed:
-                AddCurrency(3);
+                AddCurrency(2 * treeHeightMultiplier);
                 break;
             case SnapZoneType.SidePlatform:
-                AddCurrency(2);
+                AddCurrency(1 * treeHeightMultiplier);
                 break;
             case SnapZoneType.CryPlace:
                 AddCurrency(1);

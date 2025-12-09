@@ -34,6 +34,8 @@ public class GameSceneManager : MonoBehaviour
             //TreeHeightUI.Instance.UpdateTreeHeightText(CurrencyManager.Instance.treeHeight);
         }
 
+        CurrencyCounterUI.Instance.UpdateCurrencyText(CurrencyManager.Instance.currencyAmount);
+
         // Always unsubscribe to avoid duplicate calls
         UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
     }

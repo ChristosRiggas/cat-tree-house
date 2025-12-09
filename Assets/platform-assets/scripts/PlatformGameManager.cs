@@ -66,6 +66,7 @@ public class PlatformGameManager : MonoBehaviour
     public void CollectCoin(int value = 1)
     {
         coinCount += value;
+        CurrencyManager.Instance.AddCurrency(value * 3);
     }
 
     public int GetCoinCount()
@@ -78,7 +79,8 @@ public class PlatformGameManager : MonoBehaviour
     }
     public void LoadMenu()
     {
-        
-       // SceneManager.LoadScene(menuSceneName); 
+       //CurrencyManager.Instance.AddCurrency(GetCoinCount());
+
+       GameSceneManager.Instance.ChangeScene("Lobby"); 
     }
 }
