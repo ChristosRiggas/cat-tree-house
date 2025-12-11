@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: d9457f625db57be40994229ceb955479
+guid: bb09403e66e7b92429e2829b0ba56fbb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3956886474016544548
-    second: bird_flying_anim_0
+      213: -6601691336363857274
+    second: White_0
+  - first:
+      213: -7334779398576879013
+    second: White_1
+  - first:
+      213: 8062665933275500330
+    second: White_2
+  - first:
+      213: 399476101167354970
+    second: White_3
+  - first:
+      213: -2499782443411086787
+    second: White_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bird_flying_anim_0
+      name: White_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 1
-        width: 8
-        height: 7
+        width: 12
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +127,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 427dd4c984fa9e630800000000000000
-      internalID: 3956886474016544548
+      spriteID: 68a2243f4b41264a0800000000000000
+      internalID: -6601691336363857274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ac8f19ff0a53a90800000000000000
+      internalID: -7334779398576879013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2f878fc2f754ef60800000000000000
+      internalID: 8062665933275500330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 2
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a549652c5693b8500800000000000000
+      internalID: 399476101167354970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: White_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 2
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3269b4bc1dfe4dd0800000000000000
+      internalID: -2499782443411086787
       vertices: []
       indices: 
       edges: []
@@ -125,7 +225,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +235,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bird_flying_anim_0: 3956886474016544548
+      White_0: -6601691336363857274
+      White_1: -7334779398576879013
+      White_2: 8062665933275500330
+      White_3: 399476101167354970
+      White_4: -2499782443411086787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
