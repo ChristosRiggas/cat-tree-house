@@ -4,8 +4,8 @@ public class FallingItem : MonoBehaviour
 {
     [Header("物品设置")]
     [SerializeField] private float fallSpeed = 3f;          // 掉落速度
-    [SerializeField] private bool isCorrectItem = true;     // true=老鼠(正确), false=洋葱(错误)
-    [SerializeField] private int score = 10;                // 抓到老鼠的得分
+    [SerializeField] private bool isCorrectItem = true;     // true=鱼(正确), false=洋葱(错误)
+    [SerializeField] private int score = 10;                // 抓到鱼的得分
 
     [Header("边界设置")]
     [SerializeField] private float destroyY = -6f;          // 掉出屏幕底部的Y坐标
@@ -26,21 +26,21 @@ public class FallingItem : MonoBehaviour
     public void Collect()
     {
         // 找到游戏管理器
-        GameManager gameManager = FindObjectOfType<GameManager>();
+        GameManager gameManager = FindFirstObjectByType<GameManager>();
 
         if (gameManager != null)
         {
             if (isCorrectItem)
             {
-                // 抓到老鼠 - 加分
+                // 抓到鱼 - 加分
                 gameManager.AddScore(score);
-                Debug.Log("抓到老鼠! +{score}分");
+                Debug.Log("Caught fish! +" + score + " points");
             }
             else
             {
                 // 抓到洋葱 - 游戏结束
                 gameManager.GameOver();
-                Debug.Log("抓到洋葱! 游戏结束");
+                Debug.Log("Caught onion! Game Over");
             }
         }
 
