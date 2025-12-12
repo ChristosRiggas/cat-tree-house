@@ -17,6 +17,8 @@ public class PlatformGameManager : MonoBehaviour
     public MonoBehaviour playerMovementScript;
     public float flashDuration = 2f;
     public float flashSpeed = 0.2f;  
+
+    private MusicManager musicManager;
     void Awake()
     {
         if (Instance == null)
@@ -36,6 +38,11 @@ public class PlatformGameManager : MonoBehaviour
             playerMovementScript.enabled = false;
         }
         StartCoroutine(StartGameSequence());
+    }
+
+    private void Start()
+    {
+        musicManager = MusicManager.Instance;
     }
     private IEnumerator StartGameSequence()
     {
@@ -138,6 +145,7 @@ public class PlatformGameManager : MonoBehaviour
     }
     public void CollectCoin(int value = 1)
     {
+        musicManager.PlaySFX();
         coinCount += value;
     }
 

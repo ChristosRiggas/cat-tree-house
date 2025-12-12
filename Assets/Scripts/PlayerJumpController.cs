@@ -9,10 +9,14 @@ public class PlayerJumpController : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public GameObject gameOverScreen;
 
+
+    private MusicManager musicManager;
+
     Vector3 jumpPosition;
     Vector3 landPosition;
     private void Start()
     {
+        musicManager = MusicManager.Instance;
         landPosition = transform.position;
         jumpPosition = new Vector3(transform.position.x, transform.position.y + jumpheight, transform.position.z);
         animator = GetComponent<Animator>();
@@ -22,6 +26,7 @@ public class PlayerJumpController : MonoBehaviour
     public void Jump()
     {
         animator.Play("PlayerJump", 0, 0f);
+        musicManager.PlaySFX();
         jumpduration = animator.GetCurrentAnimatorStateInfo(0).length/2;
         StartCoroutine(JumpRoutine(jumpPosition,jumpduration));
     }

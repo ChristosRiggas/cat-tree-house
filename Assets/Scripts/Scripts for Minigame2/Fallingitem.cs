@@ -10,6 +10,13 @@ public class FallingItem : MonoBehaviour
     [Header("边界设置")]
     [SerializeField] private float destroyY = -6f;          // 掉出屏幕底部的Y坐标
 
+
+    private MusicManager musicManager;
+
+    private void Start()
+    {
+        musicManager = MusicManager.Instance; // 获取音乐管理器实例
+    }
     private void Update()
     {
         // 物品向下掉落
@@ -34,6 +41,7 @@ public class FallingItem : MonoBehaviour
             {
                 // 抓到鱼 - 加分
                 gameManager.AddScore(score);
+                musicManager.PlaySFX(); // 播放抓到鱼的音效
                 Debug.Log("Caught fish! +" + score + " points");
             }
             else

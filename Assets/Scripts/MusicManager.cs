@@ -9,6 +9,7 @@ public class MusicManager : MonoBehaviour
 
     [Header("Audio Sources")]
     public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     [Header("Music Clips")]
     public AudioClip mainMenuMusic;
@@ -19,9 +20,15 @@ public class MusicManager : MonoBehaviour
     [Header("SFX Clips")]
     public AudioClip failSFX;
     public AudioClip winSFX;
+    public AudioClip coinSFX;
+    public AudioClip eatSFX;
+    public AudioClip jumpSFX;
 
 
     private Coroutine fadeRoutine;
+
+
+    private bool isInLobby = true;
     private void Awake()
     {
         if (Instance != null)
@@ -44,13 +51,17 @@ public class MusicManager : MonoBehaviour
     private void OnSceneChanged(Scene oldScene, Scene newScene)
     {
         AudioClip nextClip = GetClipForScene(newScene.name);
-
-        if (nextClip == mainMenuMusic) 
+        musicSource.loop = true;
+        if (nextClip == mainMenuMusic)
         {
+            isInLobby = true;
             PlayMainMenu();
             return;
         }
-        musicSource.loop = true;
+        else 
+        {
+            isInLobby = false;
+        }
         if (nextClip != musicSource.clip)
         {
             if (fadeRoutine != null)
@@ -79,6 +90,29 @@ public class MusicManager : MonoBehaviour
                 return mainMenuMusic;
         }
     }
+
+    public void PlaySFX()
+    {
+        AudioClip clip;
+        string sceneName = SceneManager.GetActiveScene().name;
+        switch (sceneName)
+        {
+            case "MiniGame1Scene":
+                clip = jumpSFX;
+                break;
+            case "PlatformGame":
+                clip = coinSFX;
+                break;
+            case "MiniGameCatchFish":
+                clip = eatSFX;
+                break;
+            default:
+                clip = coinSFX;
+                break;
+        }
+        sfxSource.PlayOneShot(clip);
+    }
+
 
     public void PlayEndSFX(bool hasWon)
     {
