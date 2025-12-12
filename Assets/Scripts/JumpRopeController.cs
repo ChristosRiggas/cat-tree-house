@@ -9,8 +9,10 @@ public class JumpRopeController : MonoBehaviour
     public SpriteRenderer ropeSpriteRenderer;
     public float speedIncrease = 0.01f;
     public SpriteRenderer jumpLabel;
+
+    public float startDelay = 2f;
     private float currentSpeed = 1f;
-    
+
 
     private bool canJump;
     private bool hasJumpedEarly;
@@ -21,15 +23,22 @@ public class JumpRopeController : MonoBehaviour
 
     private float delay = 0f;
 
+    private bool hasStarted = false;
+
+
     private void Start()
     {
         ropeSpriteRenderer = GetComponent<SpriteRenderer>();
         ropeSpriteRenderer.sortingOrder = 0;
+        jumpLabel.enabled = false;
+        ropeAnimator.speed = 0f;
+        MusicManager.Instance.PlayWaitSFX();
+        StartCoroutine(StartGameAfterDelay(startDelay));
     }
     private void Update()
     {
 
-        if (hasFailed) return;
+        if (hasFailed || !hasStarted) return;
         // Detect click
         if (Input.GetMouseButtonDown(0))
         {
@@ -55,6 +64,13 @@ public class JumpRopeController : MonoBehaviour
             hasJumped = true;
             IncreaseSpeed();
         }
+    }
+
+    IEnumerator StartGameAfterDelay(float startDelay)
+    {
+        yield return new WaitForSeconds(startDelay);
+        hasStarted = true;
+        ropeAnimator.speed = currentSpeed;
     }
 
     IEnumerator ResetEarlyJump()

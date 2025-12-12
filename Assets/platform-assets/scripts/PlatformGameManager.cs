@@ -37,12 +37,8 @@ public class PlatformGameManager : MonoBehaviour
         {
             playerMovementScript.enabled = false;
         }
-        StartCoroutine(StartGameSequence());
-    }
-
-    private void Start()
-    {
         musicManager = MusicManager.Instance;
+        StartCoroutine(StartGameSequence());
     }
     private IEnumerator StartGameSequence()
     {
@@ -52,7 +48,7 @@ public class PlatformGameManager : MonoBehaviour
             StartGame();
             yield break;
         }
-
+        musicManager.PlayWaitSFX();
         float startTime = Time.time;
         Color originalColor = startupHintText.color;
 

@@ -23,6 +23,7 @@ public class MusicManager : MonoBehaviour
     public AudioClip coinSFX;
     public AudioClip eatSFX;
     public AudioClip jumpSFX;
+    public AudioClip waitSFX;
 
 
     private Coroutine fadeRoutine;
@@ -127,6 +128,11 @@ public class MusicManager : MonoBehaviour
             StopCoroutine(fadeRoutine);
 
         fadeRoutine = StartCoroutine(FadeAndSwitch(nextClip, 0.5f));
+    }
+
+    public void PlayWaitSFX()
+    {
+        sfxSource.PlayOneShot(waitSFX);
     }
 
     public void PlayMainMenu()

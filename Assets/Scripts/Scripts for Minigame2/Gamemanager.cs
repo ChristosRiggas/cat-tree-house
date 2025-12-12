@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         {
             itemSpawner.StartSpawning();
         }
+        MusicManager.Instance.PlayWaitSFX();
     }
 
     private void Update()
