@@ -2439,6 +2439,7 @@ MonoBehaviour:
   coinSFX: {fileID: 8300000, guid: 04bf324ee64336e4687658e134326cce, type: 3}
   eatSFX: {fileID: 8300000, guid: 57522baf09375b240a2364e93fa0f71e, type: 3}
   jumpSFX: {fileID: 8300000, guid: e9737ae1799949a44a7d0bdb3c98f8e5, type: 3}
+  waitSFX: {fileID: 8300000, guid: 58cee891eb5bb3648bacbd1ea61f0e44, type: 3}
 --- !u!82 &879507008
 AudioSource:
   m_ObjectHideFlags: 0
